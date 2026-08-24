@@ -1,0 +1,52 @@
+path,category,subcategory,brand,class_label
+static/catalog_demo/Boots/Ankle/Timberland/timberland_ankle_0.png,Boots,Ankle,Timberland,Boots/Ankle/Timberland
+static/catalog_demo/Boots/Ankle/Timberland/timberland_ankle_1.png,Boots,Ankle,Timberland,Boots/Ankle/Timberland
+static/catalog_demo/Boots/Ankle/Timberland/timberland_ankle_2.png,Boots,Ankle,Timberland,Boots/Ankle/Timberland
+static/catalog_demo/Boots/Ankle/DrMartens/drmartens_ankle_0.png,Boots,Ankle,DrMartens,Boots/Ankle/DrMartens
+static/catalog_demo/Boots/Ankle/DrMartens/drmartens_ankle_1.png,Boots,Ankle,DrMartens,Boots/Ankle/DrMartens
+static/catalog_demo/Boots/Ankle/DrMartens/drmartens_ankle_2.png,Boots,Ankle,DrMartens,Boots/Ankle/DrMartens
+static/catalog_demo/Boots/Ankle/Frye/frye_ankle_0.png,Boots,Ankle,Frye,Boots/Ankle/Frye
+static/catalog_demo/Boots/Ankle/Frye/frye_ankle_1.png,Boots,Ankle,Frye,Boots/Ankle/Frye
+static/catalog_demo/Boots/Ankle/Frye/frye_ankle_2.png,Boots,Ankle,Frye,Boots/Ankle/Frye
+static/catalog_demo/Boots/Knee-High/Coach/coach_knee-high_0.png,Boots,Knee-High,Coach,Boots/Knee-High/Coach
+static/catalog_demo/Boots/Knee-High/Coach/coach_knee-high_1.png,Boots,Knee-High,Coach,Boots/Knee-High/Coach
+static/catalog_demo/Boots/Knee-High/Coach/coach_knee-high_2.png,Boots,Knee-High,Coach,Boots/Knee-High/Coach
+static/catalog_demo/Boots/Knee-High/Sam Edelman/samedelman_knee-high_0.png,Boots,Knee-High,Sam Edelman,Boots/Knee-High/Sam Edelman
+static/catalog_demo/Boots/Knee-High/Sam Edelman/samedelman_knee-high_1.png,Boots,Knee-High,Sam Edelman,Boots/Knee-High/Sam Edelman
+static/catalog_demo/Boots/Knee-High/Sam Edelman/samedelman_knee-high_2.png,Boots,Knee-High,Sam Edelman,Boots/Knee-High/Sam Edelman
+static/catalog_demo/Sandals/Flat/Birkenstock/birkenstock_flat_0.png,Sandals,Flat,Birkenstock,Sandals/Flat/Birkenstock
+static/catalog_demo/Sandals/Flat/Birkenstock/birkenstock_flat_1.png,Sandals,Flat,Birkenstock,Sandals/Flat/Birkenstock
+static/catalog_demo/Sandals/Flat/Birkenstock/birkenstock_flat_2.png,Sandals,Flat,Birkenstock,Sandals/Flat/Birkenstock
+static/catalog_demo/Sandals/Flat/Teva/teva_flat_0.png,Sandals,Flat,Teva,Sandals/Flat/Teva
+static/catalog_demo/Sandals/Flat/Teva/teva_flat_1.png,Sandals,Flat,Teva,Sandals/Flat/Teva
+static/catalog_demo/Sandals/Flat/Teva/teva_flat_2.png,Sandals,Flat,Teva,Sandals/Flat/Teva
+static/catalog_demo/Sandals/Heel/SteveMadden/stevemadden_heel_0.png,Sandals,Heel,SteveMadden,Sandals/Heel/SteveMadden
+static/catalog_demo/Sandals/Heel/SteveMadden/stevemadden_heel_1.png,Sandals,Heel,SteveMadden,Sandals/Heel/SteveMadden
+static/catalog_demo/Sandals/Heel/SteveMadden/stevemadden_heel_2.png,Sandals,Heel,SteveMadden,Sandals/Heel/SteveMadden
+static/catalog_demo/Sandals/Heel/Nine West/ninewest_heel_0.png,Sandals,Heel,Nine West,Sandals/Heel/Nine West
+static/catalog_demo/Sandals/Heel/Nine West/ninewest_heel_1.png,Sandals,Heel,Nine West,Sandals/Heel/Nine West
+static/catalog_demo/Sandals/Heel/Nine West/ninewest_heel_2.png,Sandals,Heel,Nine West,Sandals/Heel/Nine West
+static/catalog_demo/Shoes/Sneakers/Nike/nike_sneakers_0.png,Shoes,Sneakers,Nike,Shoes/Sneakers/Nike
+static/catalog_demo/Shoes/Sneakers/Nike/nike_sneakers_1.png,Shoes,Sneakers,Nike,Shoes/Sneakers/Nike
+static/catalog_demo/Shoes/Sneakers/Nike/nike_sneakers_2.png,Shoes,Sneakers,Nike,Shoes/Sneakers/Nike
+static/catalog_demo/Shoes/Sneakers/Adidas/adidas_sneakers_0.png,Shoes,Sneakers,Adidas,Shoes/Sneakers/Adidas
+static/catalog_demo/Shoes/Sneakers/Adidas/adidas_sneakers_1.png,Shoes,Sneakers,Adidas,Shoes/Sneakers/Adidas
+static/catalog_demo/Shoes/Sneakers/Adidas/adidas_sneakers_2.png,Shoes,Sneakers,Adidas,Shoes/Sneakers/Adidas
+static/catalog_demo/Shoes/Sneakers/NewBalance/newbalance_sneakers_0.png,Shoes,Sneakers,NewBalance,Shoes/Sneakers/NewBalance
+static/catalog_demo/Shoes/Sneakers/NewBalance/newbalance_sneakers_1.png,Shoes,Sneakers,NewBalance,Shoes/Sneakers/NewBalance
+static/catalog_demo/Shoes/Sneakers/NewBalance/newbalance_sneakers_2.png,Shoes,Sneakers,NewBalance,Shoes/Sneakers/NewBalance
+static/catalog_demo/Shoes/Sneakers/Converse/converse_sneakers_0.png,Shoes,Sneakers,Converse,Shoes/Sneakers/Converse
+static/catalog_demo/Shoes/Sneakers/Converse/converse_sneakers_1.png,Shoes,Sneakers,Converse,Shoes/Sneakers/Converse
+static/catalog_demo/Shoes/Sneakers/Converse/converse_sneakers_2.png,Shoes,Sneakers,Converse,Shoes/Sneakers/Converse
+static/catalog_demo/Shoes/Oxford/ColeHaan/colehaan_oxford_0.png,Shoes,Oxford,ColeHaan,Shoes/Oxford/ColeHaan
+static/catalog_demo/Shoes/Oxford/ColeHaan/colehaan_oxford_1.png,Shoes,Oxford,ColeHaan,Shoes/Oxford/ColeHaan
+static/catalog_demo/Shoes/Oxford/ColeHaan/colehaan_oxford_2.png,Shoes,Oxford,ColeHaan,Shoes/Oxford/ColeHaan
+static/catalog_demo/Shoes/Oxford/Clarks/clarks_oxford_0.png,Shoes,Oxford,Clarks,Shoes/Oxford/Clarks
+static/catalog_demo/Shoes/Oxford/Clarks/clarks_oxford_1.png,Shoes,Oxford,Clarks,Shoes/Oxford/Clarks
+static/catalog_demo/Shoes/Oxford/Clarks/clarks_oxford_2.png,Shoes,Oxford,Clarks,Shoes/Oxford/Clarks
+static/catalog_demo/Slippers/Slip-On/Ugg/ugg_slip-on_0.png,Slippers,Slip-On,Ugg,Slippers/Slip-On/Ugg
+static/catalog_demo/Slippers/Slip-On/Ugg/ugg_slip-on_1.png,Slippers,Slip-On,Ugg,Slippers/Slip-On/Ugg
+static/catalog_demo/Slippers/Slip-On/Ugg/ugg_slip-on_2.png,Slippers,Slip-On,Ugg,Slippers/Slip-On/Ugg
+static/catalog_demo/Slippers/Slip-On/LLBean/llbean_slip-on_0.png,Slippers,Slip-On,LLBean,Slippers/Slip-On/LLBean
+static/catalog_demo/Slippers/Slip-On/LLBean/llbean_slip-on_1.png,Slippers,Slip-On,LLBean,Slippers/Slip-On/LLBean
+static/catalog_demo/Slippers/Slip-On/LLBean/llbean_slip-on_2.png,Slippers,Slip-On,LLBean,Slippers/Slip-On/LLBean

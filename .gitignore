@@ -1,0 +1,9 @@
+instance/
+static/uploads/*
+!static/uploads/.gitkeep
+venv/
+__pycache__/
+*.pyc
+model_artifacts/*.pt
+model_artifacts/*.npy
+model_artifacts/*.faiss

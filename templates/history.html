@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Search history — Cobbler's Eye{% endblock %}
+{% block content %}
+
+<section class="section" style="border-bottom: none;">
+  <p class="section-eyebrow">Your account</p>
+  <h2>Search history</h2>
+
+  {% if entries %}
+    {% for e in entries %}
+      <div class="history-entry">
+        <img class="query-thumb" src="{{ e.query_image_url }}" alt="Query image">
+        <div>
+          <div class="history-top">
+            <div>
+              <strong>Top-{{ e.top_k }} search</strong>
+              <span class="mode-badge {{ 'demo' if e.inference_mode == 'demo' }}" style="margin-left: 8px;">
+                {{ 'trained model' if e.inference_mode == 'trained_model' else 'demo mode' }}
+              </span>
+            </div>
+            <div style="display:flex; align-items:center; gap: 14px;">
+              <span class="history-date">{{ e.created_at.strftime('%b %d, %Y · %H:%M UTC') }}</span>
+              <form method="POST" action="{{ url_for('main.delete_history', entry_id=e.id) }}"
+                    onsubmit="return confirm('Remove this search from your history?');">
+                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+              </form>
+            </div>
+          </div>
+          <div class="history-results">
+            {% for r in e.results %}
+              <img src="{{ url_for('static', filename=r.path) }}" title="{{ r.brand }} · sim {{ '%.3f'|format(r.similarity) }}">
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <p>No searches yet. <a href="{{ url_for('main.search') }}">Run your first visual search →</a></p>
+    </div>
+  {% endif %}
+</section>
+
+{% endblock %}

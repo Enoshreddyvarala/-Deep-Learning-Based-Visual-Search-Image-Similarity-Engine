@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}Cobbler's Eye — AI Visual Shoe Search{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div>
+    <p class="hero-eyebrow">Business scenario · Fashion marketplace decision support</p>
+    <h1>Find the shoe by its <em>shape</em>, not its listing title.</h1>
+    <p class="lede">
+      A shopper uploads a photo of a shoe. Cobbler's Eye reads the silhouette, sole, and
+      material — not the product name — and surfaces the closest visual matches already in
+      your catalog. It's the retrieval layer behind "shop this look," duplicate-listing
+      detection, and assortment-gap analysis.
+    </p>
+    <div class="hero-ctas">
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.search') }}" class="btn">Try the search →</a>
+      {% else %}
+        <a href="{{ url_for('auth.signup') }}" class="btn">Create a free account</a>
+        <a href="{{ url_for('auth.login') }}" class="btn btn-outline">Log in</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="last-gauge">
+    <div>SHOE-LAST GAUGE — LIVE INDEX</div>
+    <div class="gauge-scale">
+      {% for h in [38, 52, 44, 70, 61, 90, 55, 47, 66, 33, 58, 41] %}
+        <div class="gauge-tick" style="height: {{ h }}%"></div>
+      {% endfor %}
+    </div>
+    <div class="gauge-caption">
+      <span>{{ model_info.catalog_size }} catalog items indexed</span>
+      <span>{{ model_info.embedding_dim }}-d embedding</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-eyebrow">How it works</p>
+  <h2>Top-K retrieval, similarity ranking, visual search</h2>
+  <div class="grid-3">
+    <div class="spec-card">
+      <span class="spec-tag">01 · Embed</span>
+      <h3>Encode the image</h3>
+      <p>A CNN backbone turns the uploaded photo into a fixed-length vector that captures
+        silhouette, sole shape, texture, and color — the visual traits that make two shoes
+        "look alike," independent of brand or listing copy.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-tag">02 · Rank</span>
+      <h3>Score every catalog item</h3>
+      <p>Cosine similarity between the query vector and every pre-computed catalog vector
+        ranks the full assortment in one pass, powered by a FAISS nearest-neighbor index.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-tag">03 · Retrieve</span>
+      <h3>Return the Top-K matches</h3>
+      <p>The K closest items are returned with a similarity score, so a merchandiser or
+        shopper can see exactly how visually close each match is — not just that it matched.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-eyebrow">Under the hood</p>
+  <h2>Model &amp; dataset</h2>
+  <div class="grid-2">
+    <div class="spec-card">
+      <h3>Embedding model</h3>
+      <div class="mono-list">
+        <div><span>Backbone</span><span>ResNet50 (ImageNet-pretrained)</span></div>
+        <div><span>Head</span><span>512 → {{ model_info.embedding_dim }}-d projection, L2-normalized</span></div>
+        <div><span>Training objective</span><span>Triplet margin loss (margin 0.3)</span></div>
+        <div><span>Weak supervision</span><span>Category / subcategory / brand triplets</span></div>
+        <div><span>Index</span><span>FAISS IndexFlatIP (cosine similarity)</span></div>
+        <div><span>Current mode</span><span>{{ model_info.mode }}</span></div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <h3>Dataset</h3>
+      <div class="mono-list">
+        <div><span>Source</span><span>UT-Zappos50K</span></div>
+        <div><span>Size</span><span>~50,000 catalog shoe images</span></div>
+        <div><span>Structure</span><span>Category / SubCategory / Brand folders</span></div>
+        <div><span>Categories</span><span>Boots, Sandals, Shoes, Slippers</span></div>
+        <div><span>Split</span><span>90 / 10 train / val, stratified by class</span></div>
+        <div><span>Eval metric</span><span>Precision@5 (subcategory agreement)</span></div>
+      </div>
+    </div>
+  </div>
+  {% if model_info.mode == 'demo' %}
+    <p style="margin-top: 18px; font-size: 0.88rem; color: var(--thread-red); font-family: var(--font-mono);">
+      Running in DEMO mode: the trained ResNet50 embedding model and the real UT-Zappos50K
+      catalog aren't loaded (see README). Results below are computed with a lightweight
+      color-descriptor fallback over a small placeholder catalog, so the full app — auth,
+      search, ranking, and history — can be exercised end to end.
+    </p>
+  {% endif %}
+</section>
+
+<section class="section" style="border-bottom: none;">
+  <p class="section-eyebrow">Why it matters</p>
+  <h2>Built for merchandising decisions</h2>
+  <div class="grid-3">
+    <div class="spec-card">
+      <h3>Assortment gaps</h3>
+      <p>See which visual styles shoppers search for that the catalog can't match — a
+        signal for buying decisions.</p>
+    </div>
+    <div class="spec-card">
+      <h3>Duplicate detection</h3>
+      <p>Flag near-duplicate listings across sellers even when titles and SKUs differ
+        entirely.</p>
+    </div>
+    <div class="spec-card">
+      <h3>"Shop this look"</h3>
+      <p>Let a shopper upload any shoe photo and land on the closest in-stock alternatives
+        in seconds.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

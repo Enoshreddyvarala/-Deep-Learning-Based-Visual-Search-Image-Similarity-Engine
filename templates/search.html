@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Visual search — Cobbler's Eye{% endblock %}
+{% block content %}
+
+<div class="search-layout">
+  <div class="upload-card">
+    <h2 style="font-family: var(--font-display); font-size: 1.3rem; margin: 0 0 4px;">Upload a shoe photo</h2>
+    <p style="font-size: 0.86rem; color: var(--leather); margin: 0 0 18px;">
+      JPG or PNG, up to 8&nbsp;MB. Center the shoe in frame for the best match.
+    </p>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('main.search') }}" id="search-form">
+      <div class="dropzone" id="dropzone">
+        <span id="dropzone-text">Click to choose an image, or drag one here</span>
+        <img id="preview" class="preview-thumb" style="display:none;">
+      </div>
+      <input type="file" id="shoe_image" name="shoe_image" accept="image/png, image/jpeg, image/webp" required style="display:none;">
+
+      <div class="field">
+        <label for="top_k">Results to return (Top-K)</label>
+        <select id="top_k" name="top_k">
+          <option value="4">4</option>
+          <option value="8" selected>8</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-block">Find similar shoes</button>
+    </form>
+  </div>
+
+  <div>
+    <div class="results-header">
+      <h2>{% if results %}Top {{ results|length }} visual matches{% else %}Results{% endif %}</h2>
+      {% if inference_mode %}
+        <span class="mode-badge {{ 'demo' if inference_mode == 'demo' }}">
+          {{ 'trained ResNet50 model' if inference_mode == 'trained_model' else 'demo mode — see About' }}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if results %}
+      <div class="result-grid">
+        {% for r in results %}
+          <div class="result-card">
+            <img src="{{ url_for('static', filename=r.path) }}" alt="{{ r.brand }} {{ r.subcategory }}">
+            <div class="result-meta">
+              <div class="brand">{{ r.brand }}</div>
+              <div class="cat">{{ r.category }} · {{ r.subcategory }}</div>
+              <span class="sim-tag">sim {{ "%.3f"|format(r.similarity) }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <p>Upload a shoe photo on the left to see visually similar catalog items ranked by
+          similarity score.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('shoe_image');
+  const preview = document.getElementById('preview');
+  const dzText = document.getElementById('dropzone-text');
+
+  dropzone.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+    dropzone.classList.add('has-file');
+    dzText.textContent = file.name;
+    const reader = new FileReader();
+    reader.onload = e => {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  ['dragover', 'dragenter'].forEach(evt =>
+    dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('has-file'); })
+  );
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    if (e.dataTransfer.files.length) {
+      fileInput.files = e.dataTransfer.files;
+      fileInput.dispatchEvent(new Event('change'));
+    }
+  });
+</script>
+
+{% endblock %}
